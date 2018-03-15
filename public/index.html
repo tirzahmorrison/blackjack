@@ -2,74 +2,45 @@
 
 
 <html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>blackjack</title>
-    <link rel="stylesheet" href="/screen.css">
-  </head>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blackjack</title>
+  <link rel="stylesheet" href="/screen.css">
+</head>
+
+<body>
   
-  
-  <body>
+  <html>
 
-    <div id="table">
-      <div id="dealer-score" class="score">Dealer score: <span>0</span></div>
-      <div id="deck">
-        <div class="back"></div>
-      </div>
-      <div class="container" id="dealer">
-      </div>
-
-      <div class="border-line"></div>
-
-      <div id="player-score" class="score">Your score: <span>0</span></div>
-      <div class="container" id="player">
-      </div>
-    </div>
-
-    <div id="panel">
-      <div id="status">Press Deal to start game</div>
-
-      <button id="deal" class="blue" type="button">DEAL</button>
-      <button id="hit" class="green" type="button" disabled>HIT</button>
-      <button id="stand" class="red" type="button" disabled>STAND</button>
-
-    </div>
-
-    <script type="text/javascript" src="blackjack.js"></script>
-    <script type="text/javascript">
-      //initialise the game
-      BlackjackJS.init();
-    </script>
-  </body>
-</html>
-
-
-  
-  <!-- <body>
-    <section class="game">
-      <h1>Blackjack</h1>
-      <input type="button" class="button" value="start" onclick="start()" />
-      <input type="button" class="button" value="hit me" onclick="hitMe()" />
-      <input type="button" class="button" value="stay" onclick="stay()" />
-  
-      <section id="players" class="players">
-      </section>
-  
-      <section id="deck" class="deck">
-          <section class="card" id="deckcount">52</section>
-          <section class="status" id="status"></section>
-      </section>
-  
-      <section class="clear"></section>
+  <section class="game">
+    <h1>Blackjack</h1>
   </section>
-  </body>
-</html>--!>
 
-<!<html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>blackjack</title>
-    <link rel="stylesheet" href="/screen.css">
-  </head>
+  <section id="table">
+    <section id="dealer-score" class="score">Dealer score:
+      <span>0</span>
+    </section>
+    <section id="deck">
+      <section class="back"></section>
+    </section>
+    <section class="container" id="dealer">
+    </section>
+    <input type="button" class="button" value="deal" onclick="deal()" />
+    <input type="button" class="button" value="hit me" onclick="hitMe()" />
+    <input type="button" class="button" value="stay" onclick="stay()" />
+
+    <section id="players" class="players">
+    </section>
+
+    <section id="deck" class="deck">
+      <section class="card" id="deckcount">52</section>
+      <section class="status" id="status"></section>
+    </section>
+
+    <section class="clear"></section>
+  </section>
+</body>
+
+</html>
