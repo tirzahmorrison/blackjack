@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="/screen.css">
   </head>
   <body>
-    <h1>Hello, World!</h1>
-    <script src="/main.js" charset="utf-8"></script>
+    <section class="game">
+      <h1>Blackjack</h1>
+      <input type="button" class="button" value="start" onclick="start()" />
+      <input type="button" class="button" value="hit me" onclick="hitMe()" />
+      <input type="button" class="button" value="stay" onclick="stay()" />
+  
+      <section id="players" class="players">
+      </section>
+  
+      <section id="deck" class="deck">
+          <section class="card" id="deckcount">52</section>
+          <section class="status" id="status"></section>
+      </section>
+  
+      <section class="clear"></section>
+  </section>
   </body>
 </html>
