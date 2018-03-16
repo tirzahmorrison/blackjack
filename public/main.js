@@ -18,6 +18,7 @@ const blackjack = {
 const suits = ["spades", "clubs", "hearts", "diamonds"]
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
+//create deck
 const getDeck = () => {
     const deck = []
     for (let i = 0; i < suits.length; i++) {
@@ -27,6 +28,8 @@ const getDeck = () => {
 }
     return deck
 }
+
+//shuffle deck
       
 
 
