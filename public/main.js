@@ -38,13 +38,13 @@ for (const i = 0; i < suits.length; i++) {
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
   document.querySelector(".players .deal").addEventListener("click", () => {
-    playerChoice(0, "rock")
+    playerChoice(0, "deal")
   })
   document.querySelector(".players .hit").addEventListener("click", () => {
-    playerChoice(0, "paper")
+    playerChoice(0, "hit")
   })
   document.querySelector(".players .stay").addEventListener("click", () => {
-    playerChoice(0, "scissors")
+    playerChoice(0, "stay")
   })
 
 
