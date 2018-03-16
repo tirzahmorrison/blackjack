@@ -19,8 +19,6 @@ const suits = ["spades", "clubs", "hearts", "diamonds"]
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
 
-
-
 //create deck
 const getDeck = () => {
   const deck = []
@@ -33,12 +31,9 @@ const getDeck = () => {
 }
 
 
-
-
-
 //shuffle deck
 const shuffle = () => {
-  shufflefor (const i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1000; i++) {
     const location1 = Math.floor((Math.random() * deck.length))
     const location2 = Math.floor((Math.random() * deck.length))
     const tmp = deck[location1]
