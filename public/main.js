@@ -15,21 +15,18 @@ const blackjack = {
 
 
 //build deck
-const deck = new Array()
+
 const suits = ["spades", "clubs", "hearts", "diamonds"]
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
-//create deck
 const getDeck = () => {
-  const deck = new Array()
-for (const i = 0; i < suits.length; i++) {
-  for (const a = 0; a < values.length; a++) {
-    const card = () => {
-      Value: values[a], Suit; suits[i]
-    }
-    deck.push(card)
-  }
-  return deck
+    const deck = []
+    for (let i = 0; i < suits.length; i++) {
+        for (let a=0; a <values.length; a++) {
+            deck.push ({value: values[a], suit: suits[i]})
+}
+}
+    return deck
 }
       
 
