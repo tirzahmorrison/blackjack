@@ -22,7 +22,7 @@ const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
 const getDeck = () => {
     const deck = []
     for (let i = 0; i < suits.length; i++) {
-        for (let a=0; a < values.length; a++) {
+        for (let a = 0; a < values.length; a++) {
             deck.push ({value: values[a], suit: suits[i]})
 }
 }
