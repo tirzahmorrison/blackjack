@@ -23,7 +23,7 @@ const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
 const getDeck = () => {
   const deck = new Array()
 for (const i = 0; i < suits.length; i++) {
-  for (const a = 0; a < values.length; x++) {
+  for (const a = 0; a < values.length; a++) {
     const card = () => {
       Value: values[a], Suit; suits[i]
     }
