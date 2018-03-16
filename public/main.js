@@ -34,8 +34,8 @@ const getDeck = () => {
 //shuffle deck
 const shuffle = () => {
   for (let i = 0; i < 1000; i++) {
-    const location1 = Math.floor((Math.random() * deck.length))
-    const location2 = Math.floor((Math.random() * deck.length))
+    const location1 = Math.floor(Math.random() * deck.length)
+    const location2 = Math.floor(Math.random() * deck.length)
     const tmp = deck[location1]
 
     deck[location1] = deck[location2]
