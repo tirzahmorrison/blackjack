@@ -14,6 +14,9 @@ const blackjack = {
 }
 
 
+//build deck
+
+
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
   document.querySelector(".players .deal").addEventListener("click",()=>{
