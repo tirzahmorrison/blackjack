@@ -1,8 +1,17 @@
-const main = () => {
-  document.querySelector('h1').textContent += '?'
+const blackjack = {
+  winner: "",
+  choices: ["deal", "hit", "stay"],
+  players: [
+    {
+      choice: ""
+      
+    },
+    {
+      choice: ""
+      
+    }
+  ]
 }
-
-document.addEventListener('DOMContentLoaded', main)
 
 
 //As a user I should be able to see three buttons for each player
