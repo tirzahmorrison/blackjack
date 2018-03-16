@@ -43,6 +43,9 @@ const shuffle = () => {
   }
 }
 
+//create players
+
+
 
 
 
@@ -56,6 +59,9 @@ const gameStart = () => {
   })
   document.querySelector(".players .stay").addEventListener("click", () => {
     playerChoice(0, "stay")
+  })
+  document.querySelector(".players .playAgain").addEventListener("click", () => {
+    playerChoice(0, "playAgain")
   })
 
 
