@@ -48,6 +48,11 @@ const shuffle = () => {
 
 
 
+//deal the hand
+
+
+
+
 
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
