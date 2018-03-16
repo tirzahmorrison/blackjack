@@ -48,6 +48,6 @@ const gameStart = () => {
   })
 
 
-  document.querySelector(".go").addEventListener("click", choseWinner)
+  document.querySelector("").addEventListener("click", choseWinner)
 }
 
