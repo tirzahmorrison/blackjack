@@ -7,6 +7,19 @@ class Blackjack {
     this.players = []
     this.house = new House
   }
+  addPlayer(name, money) {
+    this.players.push(new Player(name, money))
+  }
+  dealCards() {
+    console.log("dealcards")
+    for (let i = 0; i < this.players.length; i++) {
+      const cards = [this.deck.deal(), this.deck.deal()]
+      this.players[i].deal(cards)
+
+    }
+    const cards = [this.deck.deal(), this.deck.deal()]
+    this.house.deal(cards)
+  }
 }
 
 
