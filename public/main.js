@@ -73,6 +73,10 @@ const gameStart = () => {
   document.querySelector("").addEventListener("click", choseWinner)
 }
 
+
+
+//below is more time consuming and confusing. keep to attempt class tonight
+
 //build deck
 //interface Card { 
 //   suit: string
