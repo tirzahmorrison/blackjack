@@ -17,6 +17,7 @@ class Blackjack {
   dealCards() {
     console.log("dealcards")
     this.currentPlayerIndex = 0
+    this.deck.shuffle()
     for (let i = 0; i < this.players.length; i++) {
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
