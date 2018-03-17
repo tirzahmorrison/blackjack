@@ -39,6 +39,7 @@ class Player {
     this.money = money
     this.hand = []
   }
+  score(card) {}
   get score() {
     console.log("get score")
     let total = 0
