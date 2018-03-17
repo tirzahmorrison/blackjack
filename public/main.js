@@ -16,7 +16,7 @@ class Blackjack {
   }
   dealCards() {
     console.log("dealcards")
-    this.curentPlayerIndex = 0
+    this.currentPlayerIndex = 0
     for (let i = 0; i < this.players.length; i++) {
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
@@ -26,7 +26,7 @@ class Blackjack {
     this.house.deal(cards)
   }
   hitMe() {
-    this.currentPlayer.deal(deck.deal())
+    this.currentPlayer.hit(this.deck.deal())
   }
 }
 
