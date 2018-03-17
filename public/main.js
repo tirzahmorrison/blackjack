@@ -1,16 +1,40 @@
-const blackjack = {
-  winner: "",
-  choices: ["deal", "hit", "stay"],
-  players: [
-    {
-      choice: ""
+//class game
+class Blackjack {
+  constructor(decks) {
+    console.log("blackjack")
+    decks = decks || 1
+    this.deck = new Deck(decks)
+    this.players = []
+  }
+}
 
-    },
-    {
-      choice: ""
 
-    }
-  ]
+//class player(s)
+class Player {
+  constructor(name, money) {
+    this.name = name
+    this.money = money
+    this.hand = []
+  }
+  bet(amount) {
+    console.log("bet")
+    this.money -= amount
+  }
+  win(amount) {
+    console.log("win")
+    this.money += amount
+  }
+  deal(cards) {
+    this.hand = cards
+  }
+  hit(card) {
+    this.hand.push(card)
+  }
+}
+
+//class house
+class House {
+
 }
 
 
@@ -18,33 +42,40 @@ const blackjack = {
 const suits = ["spades", "clubs", "hearts", "diamonds"]
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
-
-
-
 //deck class
-
 class Deck {
   constructor(numDecks) {
     console.log("deck constructor")
     this.cards = []
     this.used = []
-    for (let i = 0; i < suits.length; i++) {
-      for (let a = 0; a < values.length; a++) {
-        this.cards.push({ value: values[a], suit: suits[i] })
+    numDecks = numDecks || 1
+    for (let d = 0; d < numDecks; d++) {
+      for (let i = 0; i < suits.length; i++) {
+        for (let a = 0; a < values.length; a++) {
+          this.cards.push({ value: values[a], suit: suits[i] })
+        }
       }
     }
   }
+
   shuffle() {
     console.log("shuffle")
     for (let i = 0; i < 1000; i++) {
       const location1 = Math.floor(Math.random() * this.cards.length)
       const location2 = Math.floor(Math.random() * this.cards.length)
       const tmp = this.cards[location1]
-
       this.cards[location1] = this.cards[location2]
       this.cards[location2] = tmp
     }
   }
+
+  deal() {
+    console.log("deal")
+    const result = this.cards.pop()
+    this.used.push(result)
+    return result
+  }
+
 }
 
 
