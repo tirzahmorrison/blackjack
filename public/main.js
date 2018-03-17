@@ -50,6 +50,9 @@ class Player {
   deal(cards) {
     this.hand = cards
   }
+  canHit() {
+    return this.hand.length < 5
+  }
   hit(card) {
     this.hand.push(card)
   }
@@ -87,6 +90,8 @@ class Deck {
 
   shuffle() {
     console.log("shuffle")
+    this.deck.concat(this.used)
+    this.used = []
     for (let i = 0; i < 1000; i++) {
       const location1 = Math.floor(Math.random() * this.cards.length)
       const location2 = Math.floor(Math.random() * this.cards.length)
