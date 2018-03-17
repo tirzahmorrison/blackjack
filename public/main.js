@@ -6,12 +6,17 @@ class Blackjack {
     this.deck = new Deck(decks)
     this.players = []
     this.house = new House
+    this.currentPlayerIndex = 0
   }
   addPlayer(name, money) {
     this.players.push(new Player(name, money))
   }
+  get currentPlayer() {
+    return this.players[this.currentPlayerIndex]
+  }
   dealCards() {
     console.log("dealcards")
+    this.curentPlayerIndex = 0
     for (let i = 0; i < this.players.length; i++) {
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
@@ -19,6 +24,9 @@ class Blackjack {
     }
     const cards = [this.deck.deal(), this.deck.deal()]
     this.house.deal(cards)
+  }
+  hitMe() {
+    this.currentPlayer.deal(deck.deal())
   }
 }
 
