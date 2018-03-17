@@ -39,6 +39,14 @@ class Player {
     this.money = money
     this.hand = []
   }
+  get score() {
+    console.log("get score")
+    let total = 0
+    for(let i = 0; i < this.hand.length; i++) {
+      total += 
+    }
+    return total
+  }
   bet(amount) {
     console.log("bet")
     this.money -= amount
@@ -56,6 +64,7 @@ class Player {
   hit(card) {
     this.hand.push(card)
   }
+
 }
 
 //class house
