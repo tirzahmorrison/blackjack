@@ -5,6 +5,7 @@ class Blackjack {
     decks = decks || 1
     this.deck = new Deck(decks)
     this.players = []
+    this.house = new House
   }
 }
 
@@ -33,7 +34,11 @@ class Player {
 }
 
 //class house
-class House {
+class House extends Player {
+  constructor() {
+    console.log("house")
+    super("House", 0)
+  }
 
 }
 
