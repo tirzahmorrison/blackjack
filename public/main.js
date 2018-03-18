@@ -96,7 +96,7 @@ class Blackjack {
 //class player(s)
 class Player {
   constructor(name, money, splitFrom) {
-    this.name = name
+    this._name = name
     this.money = money
     this.hand = []
     this.valueForAce = 1
@@ -123,6 +123,9 @@ class Player {
     }
     return total
   }
+  get name() {
+
+  }
   hasBlackjack() {
     return this.score === 21
   }
@@ -148,6 +151,10 @@ class Player {
   canSplit() {
     console.log("can split")
     return this.hand.length === 2 && this.hand[0].value === this.hand[1].value
+  }
+  finishSplit() {
+    console.log("give money back")
+    this.splitFrom.win(this.money)
   }
   hit(card) {
     this.hand.push(card)
