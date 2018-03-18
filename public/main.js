@@ -31,8 +31,10 @@ class Blackjack {
       this.currentPlayer.hit(this.deck.deal())
     }
   }
-  didBustQuestionMarkDontGetUsedToNamingFunctionsFunnyNames() {
-    
+  checkForPlayerBust() {
+    if (this.currentPlayer.isBusted()) {
+      this.
+    }
   }
 }
 
