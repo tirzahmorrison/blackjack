@@ -59,7 +59,17 @@ class Blackjack {
   scoreGame() {
     for (let i = 0; i < this.players.length; i++) {
       const player = this.players[i]
-      if(player.hasBlackjack() && this.house.hasBlackjack())
+      if(player.hasBlackjack() && this.house.hasBlackjack()) {
+        continue
+      } else if(player.hasBlackjack) {
+        player.win(Math.floor(1.5*player.bet))
+      } else if(!player.isBusted() && player.score > house.score) {
+        player.win(player.bet)
+      } else if(!player.isBusted() && player.score === house.score) {
+        continue 
+      } else {
+        player.lose()
+      }
     }
   }
 }
@@ -96,7 +106,7 @@ class Player {
   hasBlackjack() {
     return this.score === 21
   }
-  bet(amount) {
+  makeBet(amount) {
     console.log("bet")
     this.bet = amount
   }
