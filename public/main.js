@@ -191,47 +191,31 @@ class Deck {
 
 }
 
-
-
-
-
-
-
-
-
-//create players
-
-
-
-
-//deal the hand
-
-
-
-
-
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
-  document.querySelector(".players .deal").addEventListener("click", () => {
-    playerChoice(0, "deal")
-  })
-  document.querySelector(".players .hit").addEventListener("click", () => {
-    playerChoice(0, "hit")
-  })
-  document.querySelector(".players .stay").addEventListener("click", () => {
-    playerChoice(0, "stay")
-  })
-  document.querySelector(".players .playAgain").addEventListener("click", () => {
-    playerChoice(0, "playAgain")
-  })
-
-
-  document.querySelector("").addEventListener("click", choseWinner)
+    const game = new Blackjack
 }
 
 
+document.addEventListener('DOMContentLoaded', gameStart)
 
 
 
 
 
+
+//document.querySelector(".players .deal").addEventListener("click", () => {
+//  // playerChoice(0, "deal")
+// })
+// document.querySelector(".players .hit").addEventListener("click", () => {
+//   playerChoice(0, "hit")
+// })
+// document.querySelector(".players .stay").addEventListener("click", () => {
+//   playerChoice(0, "stay")
+// })
+// document.querySelector(".players .playAgain").addEventListener("click", () => {
+//   playerChoice(0, "playAgain")
+// })
+
+
+// document.querySelector("").addEventListener("click", choseWinner)
