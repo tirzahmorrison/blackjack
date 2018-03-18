@@ -47,7 +47,8 @@ class Blackjack {
     return this.currentPlayerIndex >= this.players.length
   }
   playHouse() {
-    
+    console.log("I get to use a while loop")
+    while(this.currentPlayer.canHit() && this.currentPlayer.score < 17)
   }
 }
 
