@@ -31,6 +31,9 @@ class Blackjack {
       this.checkForPlayerBust()
     }
   }
+  stay() {
+    this.currentPlayerIndex++
+  }
   checkForPlayerBust() {
     if (this.currentPlayer.isBusted()) {
       this.currentPlayerIndex++
