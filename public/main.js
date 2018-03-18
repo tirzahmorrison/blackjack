@@ -243,12 +243,16 @@ class PlayerRenderer {
   constructor(watchedPlayer) {
     this.watchedPlayer = watchedPlayer
     const playersArea = document.querySelector("#players-area")
-    const templates = document.querySelector(".templates #player > section").cloneNode(true)
-    templates.classList.add(this.watchedPlayer.name)
-    playersArea.appendChild(templates)
+    this.template = document.querySelector(".templates #player > section").cloneNode(true)
+    this.template.classList.add(this.watchedPlayer.name)
+    playersArea.appendChild(this.template)
+    this.render()
   }
   render() {
-
+    this.template.querySelector("h1").textContent = this.watchedPlayer.name
+    this.template.querySelector(".playerMoney").textContent = this.watchedPlayer.money
+    this.template.querySelector(".player-score span").textContent = this.watchedPlayer.score
+    this.template.querySelector(".playerBet").value = this.watchedPlayer.bet
   }
 }
 
