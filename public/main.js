@@ -243,7 +243,7 @@ class PlayerRenderer {
   constructor(watchedPlayer) {
     this.watchedPlayer = watchedPlayer
     const playersArea = document.querySelector("#players-area")
-    const templates = document.querySelector(".templates #player > section").cloneNode()
+    const templates = document.querySelector(".templates #player > section").cloneNode(true)
     templates.classList.add(this.watchedPlayer.name)
     playersArea.appendChild(templates)
   }
