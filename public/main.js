@@ -49,7 +49,8 @@ class Blackjack {
   }
   split() {
     if (this.currentPlayer.canSplit()) {
-      const splitPlayer = new Player(this.currentPlayer.name, this.currentPlayer.bet, true)
+      const splitPlayer = new Player(this.currentPlayer.name, this.currentPlayer.bet, this.currentPlayer)
+      splitPlayer.makeBet(this.currentPlayer.bet)
     }
   }
   stay() {
@@ -94,12 +95,13 @@ class Blackjack {
 
 //class player(s)
 class Player {
-  constructor(name, money) {
+  constructor(name, money, splitFrom) {
     this.name = name
     this.money = money
     this.hand = []
     this.valueForAce = 1
     this.bet = 0
+    this.splitFrom = splitFrom
   }
   scoreFor(card) {
     switch (card.value) {
