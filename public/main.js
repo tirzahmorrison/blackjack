@@ -32,6 +32,9 @@ class Blackjack {
         this.players[i].finishSplit()
         this.players.splice(i, 1)
       }
+      if(!this.players[i]) {
+        continue
+      }
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
       this.cb(this.players[i])
