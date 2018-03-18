@@ -83,7 +83,7 @@ class Player {
     this.hand = cards
   }
   canHit() {
-    return this.hand.length < 5 && this.isBusted()
+    return this.hand.length < 5 && !this.isBusted()
   }
   hit(card) {
     this.hand.push(card)
