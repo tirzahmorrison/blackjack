@@ -27,7 +27,7 @@ class Blackjack {
     }
     const cards = [this.deck.deal(), this.deck.deal()]
     this.house.deal(cards)
-    while (this.currentPlayer && this.currentPlayer.score === 21) {
+    while (this.currentPlayer && this.currentPlayer.hasBlackjack()) {
       this.currentPlayerIndex++
     }
   }
@@ -55,6 +55,12 @@ class Blackjack {
       this.hitMe() 
     }
     this.scoreGame() 
+  }
+  scoreGame() {
+    for (let i = 0; i < this.players.length; i++) {
+      const player = this.players[i]
+      if(player.hasBlackjack() && this.house.hasBlackjack())
+    }
   }
 }
 
@@ -86,6 +92,9 @@ class Player {
       total += this.scoreFor(this.hand[i])
     }
     return total
+  }
+  hasBlackjack() {
+    return this.score === 21
   }
   bet(amount) {
     console.log("bet")
