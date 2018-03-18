@@ -238,7 +238,7 @@ class Deck {
 
 class PlayerRenderer {
   constructor(watchedPlayer) {
-    this.watchedPlayer = wacthedPlayer
+    this.watchedPlayer = watchedPlayer
   }
   render() {
 
