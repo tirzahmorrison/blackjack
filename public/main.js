@@ -18,7 +18,7 @@ class Blackjack {
     return player
   }
   get currentPlayer() {
-    if (isHousesTurn()) {
+    if (this.isHousesTurn()) {
       return this.house
     }
     return this.players[this.currentPlayerIndex]
