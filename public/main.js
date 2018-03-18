@@ -38,13 +38,25 @@ class Player {
     this.name = name
     this.money = money
     this.hand = []
+    this.valueForAce = 1
   }
-  score(card) {}
+  scoreFor(card) {
+    switch(card.value) {
+      case "K":
+      case "Q":
+      case "J":
+        return 10
+      case "A":
+        return this.valueForAce
+      default:
+      return parseInt(card.value)
+    }
+  }
   get score() {
     console.log("get score")
     let total = 0
     for(let i = 0; i < this.hand.length; i++) {
-      total += 
+      total += scoreFor(this.hand[i])
     }
     return total
   }
@@ -64,6 +76,10 @@ class Player {
   }
   hit(card) {
     this.hand.push(card)
+  }
+  chooseValueForAce(choice) {
+    console.log("choice")
+    this.valueForAce = choice
   }
 
 }
