@@ -53,22 +53,22 @@ class Blackjack {
   }
   playHouse() {
     console.log("I get to use a while loop")
-    while(this.currentPlayer.canHit() && this.currentPlayer.score < 17) {
-      this.hitMe() 
+    while (this.currentPlayer.canHit() && this.currentPlayer.score < 17) {
+      this.hitMe()
     }
-    this.scoreGame() 
+    this.scoreGame()
   }
   scoreGame() {
     for (let i = 0; i < this.players.length; i++) {
       const player = this.players[i]
-      if(player.hasBlackjack() && this.house.hasBlackjack()) {
+      if (player.hasBlackjack() && this.house.hasBlackjack()) {
         continue
-      } else if(player.hasBlackjack) {
-        player.win(Math.floor(1.5*player.bet))
-      } else if(!player.isBusted() && player.score > house.score) {
+      } else if (player.hasBlackjack) {
+        player.win(Math.floor(1.5 * player.bet))
+      } else if (!player.isBusted() && player.score > house.score) {
         player.win(player.bet)
-      } else if(!player.isBusted() && player.score === house.score) {
-        continue 
+      } else if (!player.isBusted() && player.score === house.score) {
+        continue
       } else {
         player.lose()
       }
@@ -195,34 +195,15 @@ class Deck {
 
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
-    const game = new Blackjack
-    document.querySelector("#addPlayer").addEventListener("click", () => {
-      const playerName = document.querySelector(".playerName").value
-      const playerStartingMoney = document.querySelector(".playerStartingMoney").value
-      const player = game.addPlayer(playerName, playerStartingMoney)
-    })
+  const game = new Blackjack
+  document.querySelector("#addPlayer").addEventListener("click", () => {
+    const playerName = document.querySelector(".playerName").value
+    const playerStartingMoney = document.querySelector(".playerStartingMoney").value
+    const player = game.addPlayer(playerName, playerStartingMoney)
+  })
+  document.querySelector("#hitButton").addEventListener("click", game.hitMe)
+  document.querySelector("#stayButton").addEventListener("click", game.stay)
+  document.querySelector("#dealButton").addEventListener("click", game.dealCards)
+  document.querySelector("#splitButton").addEventListener("click", game.split)
 }
-
-
 document.addEventListener('DOMContentLoaded', gameStart)
-
-
-
-
-
-
-//document.querySelector(".players .deal").addEventListener("click", () => {
-//  // playerChoice(0, "deal")
-// })
-// document.querySelector(".players .hit").addEventListener("click", () => {
-//   playerChoice(0, "hit")
-// })
-// document.querySelector(".players .stay").addEventListener("click", () => {
-//   playerChoice(0, "stay")
-// })
-// document.querySelector(".players .playAgain").addEventListener("click", () => {
-//   playerChoice(0, "playAgain")
-// })
-
-
-// document.querySelector("").addEventListener("click", choseWinner)
