@@ -48,9 +48,15 @@ class Blackjack {
     }
   }
   split() {
+    console.log("split work")
     if (this.currentPlayer.canSplit()) {
       const splitPlayer = new Player(this.currentPlayer.name, this.currentPlayer.bet, this.currentPlayer)
       splitPlayer.makeBet(this.currentPlayer.bet)
+      const cards = this.currentPlayer.hand
+      this.currentPlayer.deal([this.deck.deal(), cards[0]])
+      splitPlayer.deal([this.deck.deal(), cards[1]])
+      this.players.splice(this.currentPlayerIndex +1, 0, splitPlayer)
+      this.cb(this.currentPlayer)
     }
   }
   stay() {
