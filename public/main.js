@@ -1,12 +1,16 @@
 //class game
 class Blackjack {
-  constructor(decks) {
+  constructor(callBack) {
     console.log("blackjack")
-    decks = decks || 1
-    this.deck = new Deck(decks)
+    this.cb = callBack
+    this.deck = new Deck()
     this.players = []
     this.house = new House
     this.currentPlayerIndex = 0
+  }
+  changeNumberOfDecks(numDecks) {
+    this.deck = new Deck(numDecks)
+    this.dealCards()
   }
   addPlayer(name, money) {
     const player = new Player(name, money)
@@ -26,25 +30,31 @@ class Blackjack {
     for (let i = 0; i < this.players.length; i++) {
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
+      this.cb(this.players[i])
     }
     const cards = [this.deck.deal(), this.deck.deal()]
     this.house.deal(cards)
+    this.cb(this.house)
     while (this.currentPlayer && this.currentPlayer.hasBlackjack()) {
       this.currentPlayerIndex++
+      this.cb(this.currentPlayer)
     }
   }
   hitMe() {
     if (this.currentPlayer.canHit()) {
       this.currentPlayer.hit(this.deck.deal())
+      this.cb(this.currentPlayer)
       this.checkForPlayerBust()
     }
   }
   stay() {
     this.currentPlayerIndex++
+    this.cb(this.currentPlayer)
   }
   checkForPlayerBust() {
     if (this.currentPlayer.isBusted()) {
       this.currentPlayerIndex++
+      this.cb(this.currentPlayer)
     }
   }
   isHousesTurn() {
@@ -72,6 +82,7 @@ class Blackjack {
       } else {
         player.lose()
       }
+      this.cb(player)
     }
   }
 }
@@ -193,9 +204,13 @@ class Deck {
 
 }
 
-//As a user I should be able to see three buttons for each player
+//As a player .when the page loads I should be able to play a game of blackjack
 const gameStart = () => {
-  const game = new Blackjack
+  const playerTracker = ()
+  const renderPlayer = (changedPlayer) => {
+
+  }
+  const game = new Blackjack(renderPlayer)
   document.querySelector("#addPlayer").addEventListener("click", () => {
     const playerName = document.querySelector(".playerName").value
     const playerStartingMoney = document.querySelector(".playerStartingMoney").value
