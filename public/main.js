@@ -246,6 +246,7 @@ class PlayerRenderer {
     this.template = document.querySelector(".templates #player > section").cloneNode(true)
     this.template.classList.add(this.watchedPlayer.name)
     playersArea.appendChild(this.template)
+    this.template.querySelector(".playerBet").addEventListener("blur", this.makeBet)
     this.render()
   }
   render() {
@@ -253,6 +254,10 @@ class PlayerRenderer {
     this.template.querySelector(".playerMoney").textContent = this.watchedPlayer.money
     this.template.querySelector(".player-score span").textContent = this.watchedPlayer.score
     this.template.querySelector(".playerBet").value = this.watchedPlayer.bet
+  }
+  makeBet() {
+    const newBet = this.template.querySelector(".playerBet").value
+    this.watchedPlayer.makeBet(parseInt(newBet))
   }
 }
 
