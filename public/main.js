@@ -39,6 +39,10 @@ class Blackjack {
       this.currentPlayerIndex++
     }
   }
+  isHousesTurn() {
+    console.log("notturn")
+    return !this.currentPlayer
+  }
 }
 
 //class player(s)
