@@ -11,9 +11,6 @@
 </head>
 
 <body>
-
-  <html>
-
   <section class="blackjack">
     <header>
       <h1>BLACKJACK</h1>
@@ -41,41 +38,42 @@
           <h1>House</h1>
         </section>
         <section class="hand">#</section>
-        <section class="house-plays">House Score:>
+        <section class="house-plays">House Score:
           <span>0</span>
         </section>
       </section>
+    </section>
 
-      <section id="buttons-main">
-        <button class="button" id="dealButton">DEAL</button>
-        <button class="button" id="hitButton">HIT</button>
-        <button class="button" id="stayButton">STAY</button>
-        <button class="button" id="splitButton">SPLIT</button>
-        <section class="add-player">
-          <input type="text" class="player-name" placeholder="Name">
-          <input type="number" class="money" placeholder="money">
-          <button class="button" id="add-player-button">ADD PLAYER</button>
+    <section id="buttons-main">
+      <button class="button" id="dealButton">DEAL</button>
+      <button class="button" id="hitButton">HIT</button>
+      <button class="button" id="stayButton">STAY</button>
+      <button class="button" id="splitButton">SPLIT</button>
+      <section class="add-player">
+        <input type="text" class="player-name" placeholder="Name">
+        <input type="number" class="money" placeholder="money">
+        <button class="button" id="add-player-button">ADD PLAYER</button>
+      </section>
+    </section>
+
+    <section id="players-area">
+      <section class="player">
+        <section>
+          <h1>#</h1>
         </section>
+        <section class="hand">#</section>
+        <section class="playerStartingMoney">#</section>
+        <input type="number" class="playerBets" placeholder="bet-amount">
+        <section class="player-score">Player Score:>
+          <span>0</span>
+        </section>
+        <section>win/lose</section>
       </section>
 
-      <section id="players-area">
-        <section class="player">
-          <section>
-            <h1>#</h1>
-          </section>
-          <section class="hand">#</section>
-          <section class="playerStartingMoney">#</section>
-          <input type="number" class="playerBets" placeholder="bet-amount">
-          <section class="player-score">Player Score:>
-            <span>0</span>
-          </section>
-          <section>win/lose</section>
-        </section>
 
+    </section>
+  </section>
+  <script src="/main.js" charset="utf-8"></script>
+</body>
 
-       </section>
-       </section>
-       </section>
-       
-       </body>
-       </html>
+</html>
