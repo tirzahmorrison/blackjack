@@ -81,6 +81,7 @@ class Player {
   }
   deal(cards) {
     this.hand = cards
+    this.valueForAce = 1
   }
   canHit() {
     return this.hand.length < 5 && !this.isBusted()
