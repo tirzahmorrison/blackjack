@@ -92,7 +92,7 @@ class Blackjack {
       const player = this.players[i]
       if (player.hasBlackjack() && this.house.hasBlackjack()) {
         continue
-      } else if (player.hasBlackjack) {
+      } else if (player.hasBlackjack()) {
         player.win(Math.floor(1.5 * player.bet))
       } else if (!player.isBusted() && player.score > house.score) {
         player.win(player.bet)
