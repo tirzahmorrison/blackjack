@@ -124,7 +124,11 @@ class Player {
     return total
   }
   get name() {
-
+    console.log("-split name")
+    if(this.splitFrom) {
+      return this._name + "-split"
+    }
+    return this._name
   }
   hasBlackjack() {
     return this.score === 21
