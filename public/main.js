@@ -242,6 +242,10 @@ class Deck {
 class PlayerRenderer {
   constructor(watchedPlayer) {
     this.watchedPlayer = watchedPlayer
+    const playersArea = document.querySelector("#players-area")
+    const templates = document.querySelector(".templates #player > section").cloneNode()
+    templates.classList.add(this.watchedPlayer.name)
+    playersArea.appendChild(templates)
   }
   render() {
 
