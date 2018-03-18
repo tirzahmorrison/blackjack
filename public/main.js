@@ -12,6 +12,9 @@ class Blackjack {
     this.players.push(new Player(name, money))
   }
   get currentPlayer() {
+    if (isHousesTurn()) {
+      return this.house
+    }
     return this.players[this.currentPlayerIndex]
   }
   dealCards() {
@@ -41,7 +44,7 @@ class Blackjack {
   }
   isHousesTurn() {
     console.log("notturn")
-    return !this.currentPlayer
+    return this.currentPlayerIndex >= this.players.length
   }
 }
 
