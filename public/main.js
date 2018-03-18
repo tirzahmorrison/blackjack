@@ -47,6 +47,11 @@ class Blackjack {
       this.checkForPlayerBust()
     }
   }
+  split() {
+    if (this.currentPlayer.canSplit()) {
+      const splitPlayer = new Player(this.currentPlayer.name, this.currentPlayer.bet, true)
+    }
+  }
   stay() {
     this.currentPlayerIndex++
     this.cb(this.currentPlayer)
@@ -137,6 +142,10 @@ class Player {
   }
   canHit() {
     return this.hand.length < 5 && !this.isBusted()
+  }
+  canSplit() {
+    console.log("can split")
+    return this.hand.length === 2 && this.hand[0].value === this.hand[1].value
   }
   hit(card) {
     this.hand.push(card)
