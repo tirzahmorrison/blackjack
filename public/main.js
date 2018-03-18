@@ -69,7 +69,12 @@ class Player {
   }
   bet(amount) {
     console.log("bet")
-    this.money -= amount
+    this.bet = amount
+  }
+  lose() {
+    console.log("lose")
+    this.money -= this.bet
+    }
   }
   win(amount) {
     console.log("win")
