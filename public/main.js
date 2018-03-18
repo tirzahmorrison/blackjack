@@ -27,6 +27,9 @@ class Blackjack {
     }
     const cards = [this.deck.deal(), this.deck.deal()]
     this.house.deal(cards)
+    while (this.currentPlayer && this.currentPlayer.score === 21) {
+      this.currentPlayerIndex++
+    }
   }
   hitMe() {
     if (this.currentPlayer.canHit()) {
@@ -48,7 +51,10 @@ class Blackjack {
   }
   playHouse() {
     console.log("I get to use a while loop")
-    while(this.currentPlayer.canHit() && this.currentPlayer.score < 17)
+    while(this.currentPlayer.canHit() && this.currentPlayer.score < 17) {
+      this.hitMe() 
+    }
+    this.scoreGame() 
   }
 }
 
