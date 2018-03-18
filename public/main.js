@@ -27,10 +27,11 @@ class Blackjack {
     this.house.deal(cards)
   }
   hitMe() {
-    this.currentPlayer.hit(this.deck.deal())
+    if (this.currentPlayer.canHit()) {
+      this.currentPlayer.hit(this.deck.deal())
+    }
   }
 }
-
 
 //class player(s)
 class Player {
@@ -41,7 +42,7 @@ class Player {
     this.valueForAce = 1
   }
   scoreFor(card) {
-    switch(card.value) {
+    switch (card.value) {
       case "K":
       case "Q":
       case "J":
@@ -49,13 +50,13 @@ class Player {
       case "A":
         return this.valueForAce
       default:
-      return parseInt(card.value)
+        return parseInt(card.value)
     }
   }
   get score() {
     console.log("get score")
     let total = 0
-    for(let i = 0; i < this.hand.length; i++) {
+    for (let i = 0; i < this.hand.length; i++) {
       total += this.scoreFor(this.hand[i])
     }
     return total
@@ -72,7 +73,7 @@ class Player {
     this.hand = cards
   }
   canHit() {
-    return this.hand.length < 5 && this.isBusted()  
+    return this.hand.length < 5 && this.isBusted()
   }
   hit(card) {
     this.hand.push(card)
