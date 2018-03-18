@@ -28,6 +28,10 @@ class Blackjack {
     this.currentPlayerIndex = 0
     this.deck.shuffle()
     for (let i = 0; i < this.players.length; i++) {
+      if (this.players[i].splitFrom) {
+        this.players[i].finishSplit()
+        this.players.splice(i, 1)
+      }
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
       this.cb(this.players[i])
