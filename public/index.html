@@ -16,74 +16,66 @@
 
   <section class="blackjack">
     <header>
-    <h1>BLACKJACK</h1>
-  </header>
+      <h1>BLACKJACK</h1>
+    </header>
   </section>
 
   <section id="table">
-    <section class="rules">
-      <h1>Rules:</h1>
-      <ul>
-        <li>rules</li>
-        <li>rules</li>
-        <li>rules</li>
-        <li>rules</li>
-      </ul>
-    </section>
-    <section id="house-score" class="score">House Score:
-      <span>0</span>
-    </section>
-    <section id="player-score" class="p-score">Player Score:
-      <span>0</span>
-    </section>
-
-    <section id="deck">
-      <section class="back-ground"></section>
-    </section>
-    <section class="container" id="house">
-    </section>
-    <button class="button" id="dealButton">DEAL</button>
-    <button class="button" id="hitButton">HIT</button>
-    <button class="button" id="stayButton">STAY</button>
-    <button class="button" id="splitButton">SPLIT</button>
-
-    <section id="players" class="players">
-    </section>
-
-
-    <section id="deck" class="deck">
-      <section class="card" id="deck-count">52</section>
-      <section class="status" id="status"></section>
-      <section>
-        <button class="button" id= "addPlayer">ADD PLAYER</button>
-        <input type="text" class="playerName" placeholder="Player Name">
-        <input type="number" class="playerStartingMoney" placeholder="Money">
+    <section id="house-area">
+      <section class="rules">
+        <h1>Rules:</h1>
+        <ul>
+          <li>rules</li>
+          <li>rules</li>
+          <li>rules</li>
+          <li>rules</li>
+        </ul>
       </section>
-    </section>
-  </section>
 
-
-  <section class="clear"></section>
-  </section>
-  <script src="/main.js" charset="utf-8"></script>
-
-</body>
-
-</html>
-
-<!-- Save these in case I have time to add more players and need this. 
-  <section id="player2score" class="p-score">Player 2 Score:
-        <span>0</span>
+      <section id="deck" class="deck">
+        <section class="card" id="deck-count">52</section>
+        <section class="status" id="status"></section>
       </section>
-      <section id="player3score" class="p-score">Player 3 Score:
-        <span>0</span>
+      <section class="house-player">
+        <section>
+          <h1>House</h1>
+        </section>
+        <section class="hand">#</section>
+        <section class="house-plays">House Score:>
+          <span>0</span>
+        </section>
       </section>
-      <section id="player4score" class="p-score">Player 4 Score:
-        <span>0</span>
+
+      <section id="buttons-main">
+        <button class="button" id="dealButton">DEAL</button>
+        <button class="button" id="hitButton">HIT</button>
+        <button class="button" id="stayButton">STAY</button>
+        <button class="button" id="splitButton">SPLIT</button>
+        <section class="add-player">
+          <input type="text" class="player-name" placeholder="Name">
+          <input type="number" class="money" placeholder="money">
+          <button class="button" id="add-player-button">ADD PLAYER</button>
+        </section>
       </section>
-      <section id="player5score" class="p-score">Player 5 Score:
-        <span>0</span>
-      </section>
-      <section id="player6score" class="p-score">Player 6 Score:
-        <span>0</span>
-      </section> -->
+
+      <section id="players-area">
+        <section class="player">
+          <section>
+            <h1>#</h1>
+          </section>
+          <section class="hand">#</section>
+          <section class="playerStartingMoney">#</section>
+          <input type="number" class="playerBets" placeholder="bet-amount">
+          <section class="player-score">Player Score:>
+            <span>0</span>
+          </section>
+          <section>win/lose</section>
+        </section>
+
+
+       </section>
+       </section>
+       </section>
+       
+       </body>
+       </html>
