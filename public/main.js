@@ -74,7 +74,6 @@ class Player {
   lose() {
     console.log("lose")
     this.money -= this.bet
-    }
   }
   win(amount) {
     console.log("win")
