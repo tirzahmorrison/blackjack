@@ -204,6 +204,10 @@ class Deck {
 
 }
 
+class playerRenderer {
+  
+}
+
 //As a player .when the page loads I should be able to play a game of blackjack
 const gameStart = () => {
   const playerTracker = ()
