@@ -46,6 +46,9 @@ class Blackjack {
     console.log("notturn")
     return this.currentPlayerIndex >= this.players.length
   }
+  playHouse() {
+    
+  }
 }
 
 //class player(s)
