@@ -204,21 +204,29 @@ class Deck {
 
 }
 
-class playerRenderer {
-  
+class PlayerRenderer {
+  constructor(watchedPlayer) {
+    this.watchedPlayer = wacthedPlayer
+  }
+  render() {
+
+  }
 }
 
 //As a player .when the page loads I should be able to play a game of blackjack
 const gameStart = () => {
-  const playerTracker = ()
+  const playerTracker = {}
   const renderPlayer = (changedPlayer) => {
-
+    playerTracker[changedPlayer.name].render()
   }
   const game = new Blackjack(renderPlayer)
+  playerTracker[game.house.name] = new PlayerRenderer(game.house)
   document.querySelector("#addPlayer").addEventListener("click", () => {
     const playerName = document.querySelector(".playerName").value
     const playerStartingMoney = document.querySelector(".playerStartingMoney").value
     const player = game.addPlayer(playerName, playerStartingMoney)
+    const render = new PlayerRenderer(player)
+    playerTracker[player.name] = render
   })
   document.querySelector("#hitButton").addEventListener("click", game.hitMe)
   document.querySelector("#stayButton").addEventListener("click", game.stay)
