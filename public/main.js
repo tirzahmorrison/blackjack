@@ -32,7 +32,7 @@ class Blackjack {
         this.players[i].finishSplit()
         this.players.splice(i, 1)
       }
-      if(!this.players[i]) {
+      if (!this.players[i]) {
         continue
       }
       const cards = [this.deck.deal(), this.deck.deal()]
@@ -62,7 +62,7 @@ class Blackjack {
       const cards = this.currentPlayer.hand
       this.currentPlayer.deal([this.deck.deal(), cards[0]])
       splitPlayer.deal([this.deck.deal(), cards[1]])
-      this.players.splice(this.currentPlayerIndex +1, 0, splitPlayer)
+      this.players.splice(this.currentPlayerIndex + 1, 0, splitPlayer)
       this.cb(this.currentPlayer)
     }
   }
@@ -138,7 +138,7 @@ class Player {
   }
   get name() {
     console.log("-split name")
-    if(this.splitFrom) {
+    if (this.splitFrom) {
       return this._name + "-split"
     }
     return this._name
@@ -246,7 +246,7 @@ class PlayerRenderer {
     this.template = document.querySelector(".templates #player > section").cloneNode(true)
     this.template.classList.add(this.watchedPlayer.name)
     playersArea.appendChild(this.template)
-    this.template.querySelector(".playerBet").addEventListener("blur", this.makeBet)
+    this.template.querySelector(".playerBet").addEventListener("blur", () => { this.makeBet() })
     this.render()
   }
   render() {
