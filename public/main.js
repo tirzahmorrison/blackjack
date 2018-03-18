@@ -9,7 +9,9 @@ class Blackjack {
     this.currentPlayerIndex = 0
   }
   addPlayer(name, money) {
-    this.players.push(new Player(name, money))
+    const player = new Player(name, money)
+    this.players.push(player)
+    return player
   }
   get currentPlayer() {
     if (isHousesTurn()) {
@@ -194,6 +196,11 @@ class Deck {
 //As a user I should be able to see three buttons for each player
 const gameStart = () => {
     const game = new Blackjack
+    document.querySelector("#addPlayer").addEventListener("click", () => {
+      const playerName = document.querySelector(".playerName").value
+      const playerStartingMoney = document.querySelector(".playerStartingMoney").value
+      const player = game.addPlayer(playerName, playerStartingMoney)
+    })
 }
 
 
