@@ -56,7 +56,7 @@ class Player {
     console.log("get score")
     let total = 0
     for(let i = 0; i < this.hand.length; i++) {
-      total += scoreFor(this.hand[i])
+      total += this.scoreFor(this.hand[i])
     }
     return total
   }
@@ -72,7 +72,7 @@ class Player {
     this.hand = cards
   }
   canHit() {
-    return this.hand.length < 5
+    return this.hand.length < 5 && this.isBusted()  
   }
   hit(card) {
     this.hand.push(card)
@@ -80,6 +80,10 @@ class Player {
   chooseValueForAce(choice) {
     console.log("choice")
     this.valueForAce = choice
+  }
+  isBusted() {
+    console.log("busted")
+    return this.score > 21
   }
 
 }
