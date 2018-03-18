@@ -21,7 +21,6 @@ class Blackjack {
     for (let i = 0; i < this.players.length; i++) {
       const cards = [this.deck.deal(), this.deck.deal()]
       this.players[i].deal(cards)
-
     }
     const cards = [this.deck.deal(), this.deck.deal()]
     this.house.deal(cards)
@@ -29,6 +28,7 @@ class Blackjack {
   hitMe() {
     if (this.currentPlayer.canHit()) {
       this.currentPlayer.hit(this.deck.deal())
+      this.checkForPlayerBust()
     }
   }
   checkForPlayerBust() {
@@ -45,6 +45,7 @@ class Player {
     this.money = money
     this.hand = []
     this.valueForAce = 1
+    this.bet = 0
   }
   scoreFor(card) {
     switch (card.value) {
