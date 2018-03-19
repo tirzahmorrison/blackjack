@@ -358,7 +358,7 @@ const gameStart = () => {
   document.querySelector("#addPlayer").addEventListener("click", () => {
     const playerName = document.querySelector(".playerName").value
     const playerStartingMoney = document.querySelector(".playerStartingMoney").value
-    const player = game.addPlayer(playerName, playerStartingMoney)
+    const player = game.addPlayer(playerName, parseInt(playerStartingMoney))
     const render = new PlayerRenderer(player)
     playerTracker[player.name] = render
   })
