@@ -96,9 +96,9 @@ class Blackjack {
         continue
       } else if (player.hasBlackjack()) {
         player.win(Math.floor(1.5 * player.bet))
-      } else if (!player.isBusted() && player.score > house.score) {
+      } else if (!player.isBusted() && player.score > this.house.score) {
         player.win(player.bet)
-      } else if (!player.isBusted() && player.score === house.score) {
+      } else if (!player.isBusted() && player.score === this.house.score) {
         continue
       } else {
         player.lose()
