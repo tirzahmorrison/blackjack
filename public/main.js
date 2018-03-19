@@ -369,7 +369,7 @@ const gameStart = () => {
         playerTracker[game.players[i].name] = null
       }
     }
-    game.dealCards.bind(game)
+    game.dealCards()
   })
   document.querySelector("#splitButton").addEventListener("click",() =>{
     const newPlayer = game.split()
