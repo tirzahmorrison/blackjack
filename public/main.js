@@ -97,6 +97,8 @@ class Blackjack {
         continue
       } else if (player.hasBlackjack()) {
         player.win(Math.floor(1.5 * player.bet))
+      } else if (!player.isBusted() && house.isBusted()) {
+        player.win(player.bet)
       } else if (!player.isBusted() && player.score > this.house.score) {
         player.win(player.bet)
       } else if (!player.isBusted() && player.score === this.house.score) {
@@ -378,11 +380,14 @@ const gameStart = () => {
   })
   document.querySelector("#playHouseButton").addEventListener("click", () => {
     playerTracker[game.house.name].isPlaying = true
+    playerTracker[game.house.name].render()
     game.playHouse()
     for(let i=0; i < game.players.length; i++) {
       const player = game.players[i]
       if (player.hasBlackjack() && game.house.hasBlackjack()) {
         playerTracker[player.name].renderResult("push")
+      } else if (!player.isBusted() && house.isBusted()) {
+        playerTracker[player.name].renderResult("win")
       } else if (!player.isBusted() && player.score > game.house.score) {
         playerTracker[player.name].renderResult("win")
       } else if (!player.isBusted() && player.score === game.house.score) {
