@@ -363,7 +363,18 @@ const gameStart = () => {
   document.querySelector("#playHouseButton").addEventListener("click", () => {
     playerTracker[game.house.name].isPlaying = true
     game.playHouse()
-    for(let i=0; i < game.players.length; i++)
+    for(let i=0; i < game.players.length; i++) {
+      const player = game.players[i]
+      if (player.hasBlackjack() && game.house.hasBlackjack()) {
+        playerTracker[player.name].renderResult("push")
+      } else if (!player.isBusted() && player.score > game.house.score) {
+        playerTracker[player.name].renderResult("win")
+      } else if (!player.isBusted() && player.score === game.house.score) {
+        playerTracker[player.name].renderResult("push")
+      } else {
+        playerTracker[player.name].renderResult("lose")
+      }
+    }
     playerTracker[game.house.name].isPlaying = false
   })
   document.querySelector("#addDeckButton").addEventListener("click", game.addDeck.bind(game))
