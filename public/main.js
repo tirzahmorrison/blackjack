@@ -244,7 +244,7 @@ class PlayerRenderer {
     this.watchedPlayer = watchedPlayer
     const playersArea = document.querySelector("#players-area")
     this.template = document.querySelector(".templates #player > section").cloneNode(true)
-    this.template.classList.add(this.watchedPlayer.name)
+    this.template.classList.add(this.watchedPlayer.name.replace(" ", ""))
     playersArea.appendChild(this.template)
     this.template.querySelector(".playerBet").addEventListener("blur", () => { this.makeBet() })
     this.render()
@@ -260,15 +260,19 @@ class PlayerRenderer {
     }
   }
   renderCard(cardToBeRendered) {
-    let suit, value
+    let suit, value, color
     if(cardToBeRendered.suit === "clubs") {
       suit = "♣"
+      color = "black"
     } else if(cardToBeRendered.suit === "diamonds") {
       suit = "♦"
+      color = "red"
     } else if(cardToBeRendered.suit === "hearts") {
       suit = "♥"
+      color = "red"
     } else {
       suit = "♠"
+      color = "black"
     }
     switch(cardToBeRendered.value) {
       case "2":
@@ -302,6 +306,11 @@ class PlayerRenderer {
       value = cardToBeRendered.value
     }
     const template = document.querySelector(".templates #" + value + " > div").cloneNode(true)
+    const spans = template.querySelectorAll("span")
+    for(let i = 0; i < spans.length; i++) {
+      spans[i].textContent = suit
+    }
+    template.querySelector(".front").classList.add(color)
     this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
