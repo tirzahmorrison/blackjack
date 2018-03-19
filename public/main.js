@@ -244,7 +244,7 @@ class PlayerRenderer {
     this.watchedPlayer = watchedPlayer
     const playersArea = document.querySelector("#players-area")
     this.template = document.querySelector(".templates #player > section").cloneNode(true)
-    this.template.classList.add(this.watchedPlayer.name.replace(" ", ""))
+    this.template.classList.add(this.watchedPlayer.name.replace(/ /g, ""))
     playersArea.appendChild(this.template)
     this.template.querySelector(".playerBet").addEventListener("blur", () => { this.makeBet() })
     this.render()
