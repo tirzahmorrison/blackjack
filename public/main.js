@@ -259,7 +259,7 @@ class PlayerRenderer {
     }
   }
   renderCard(cardToBeRendered) {
-    let suit 
+    let suit, value
     if(cardToBeRendered.suit === "clubs") {
       suit = "♣"
     } else if(cardToBeRendered.suit === "diamonds") {
@@ -269,7 +269,36 @@ class PlayerRenderer {
     } else {
       suit = "♠"
     }
-    const template = document.querySelector(".templates " + cardToBeRendered.value + " > div").cloneNode(true)
+    switch(cardToBeRendered.value) {
+      case "2":
+      value = "two"
+      break
+      case "3":
+      value = "three"
+      break
+      case "4":
+      value = "four"
+      break
+      case "5":
+      value = "five"
+      break
+      case "6":
+      value = "six"
+      break
+      case "7":
+      value = "seven"
+      break
+      case "8":
+      value = "eight"
+      break
+      case "9":
+      value = "nine"
+      break
+      case "10":
+      value = "ten"
+      break
+    }
+    const template = document.querySelector(".templates " + value + " > div").cloneNode(true)
     this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
