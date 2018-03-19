@@ -299,6 +299,7 @@ class PlayerRenderer {
       break
     }
     const template = document.querySelector(".templates #" + value + " > div").cloneNode(true)
+    this.template.querySelector(".hand").innerHTML = ""
     this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
