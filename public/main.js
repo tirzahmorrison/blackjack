@@ -66,6 +66,7 @@ class Blackjack {
       splitPlayer.deal([this.deck.deal(), cards[1]])
       this.players.splice(this.currentPlayerIndex + 1, 0, splitPlayer)
       this.cb(this.currentPlayer)
+      return splitPlayer
     }
   }
   stay() {
@@ -339,6 +340,9 @@ class PlayerRenderer {
   renderResult(result) {
     this.template.querySelector(".result").textContent = result
   }
+  cleanup() {
+    document.querySelector("#players-area").removeChild(this.template)
+  }
 }
 
 //As a player .when the page loads I should be able to play a game of blackjack
@@ -358,8 +362,20 @@ const gameStart = () => {
   })
   document.querySelector("#hitButton").addEventListener("click", game.hitMe.bind(game))
   document.querySelector("#stayButton").addEventListener("click", game.stay.bind(game))
-  document.querySelector("#dealButton").addEventListener("click", game.dealCards.bind(game))
-  document.querySelector("#splitButton").addEventListener("click", game.split.bind(game))
+  document.querySelector("#dealButton").addEventListener("click", () => {
+    for(let i=0; i < game.players.length; i++) {
+      if (game.players[i].splitFrom) {
+        playerTracker[game.players[i].name].cleanup()
+        playerTracker[game.players[i].name] = null
+      }
+    }
+    game.dealCards.bind(game)
+  })
+  document.querySelector("#splitButton").addEventListener("click",() =>{
+    const newPlayer = game.split()
+    const render = new PlayerRenderer(newPlayer)
+    playerTracker[newPlayer.name] = render
+  })
   document.querySelector("#playHouseButton").addEventListener("click", () => {
     playerTracker[game.house.name].isPlaying = true
     game.playHouse()
