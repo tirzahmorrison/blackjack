@@ -256,7 +256,7 @@ class PlayerRenderer {
       } else {
         this.watchedPlayer.chooseValueForAce(11)
       }
-      this.render
+      this.render()
     })
     this.render()
   }
@@ -268,7 +268,7 @@ class PlayerRenderer {
     this.template.querySelector(".hand").innerHTML = ""
     for (let i = 0; i < this.watchedPlayer.hand.length; i++) {
       if (this.watchedPlayer.isHouse && !this.isPlaying) {
-        this.rederCardBack()
+        this.renderCardBack()
       } else {
         this.renderCard(this.watchedPlayer.hand[i])
       }
