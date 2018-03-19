@@ -30,7 +30,7 @@ body {
   border-width: 1px;
   border-style: solid;
   font-size: 20pt;
-  position: absolute;
+  position: relative;
   width:  3.75em;
   height: 5.00em;
 }
