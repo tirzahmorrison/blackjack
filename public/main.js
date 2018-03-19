@@ -293,9 +293,9 @@ const gameStart = () => {
     const render = new PlayerRenderer(player)
     playerTracker[player.name] = render
   })
-  document.querySelector("#hitButton").addEventListener("click", game.hitMe)
-  document.querySelector("#stayButton").addEventListener("click", game.stay)
-  document.querySelector("#dealButton").addEventListener("click", game.dealCards)
-  document.querySelector("#splitButton").addEventListener("click", game.split)
+  document.querySelector("#hitButton").addEventListener("click", game.hitMe.bind(game))
+  document.querySelector("#stayButton").addEventListener("click", game.stay.bind(game))
+  document.querySelector("#dealButton").addEventListener("click", game.dealCards.bind(game))
+  document.querySelector("#splitButton").addEventListener("click", game.split.bind(game))
 }
 document.addEventListener('DOMContentLoaded', gameStart)
