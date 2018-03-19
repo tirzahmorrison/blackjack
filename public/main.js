@@ -336,6 +336,9 @@ class PlayerRenderer {
     const newBet = this.template.querySelector(".playerBet").value
     this.watchedPlayer.makeBet(parseInt(newBet))
   }
+  renderResult(result) {
+    this.template.querySelector(".result").textContent = result
+  }
 }
 
 //As a player .when the page loads I should be able to play a game of blackjack
@@ -360,6 +363,7 @@ const gameStart = () => {
   document.querySelector("#playHouseButton").addEventListener("click", () => {
     playerTracker[game.house.name].isPlaying = true
     game.playHouse()
+    for(let i=0; i < game.players.length; i++)
     playerTracker[game.house.name].isPlaying = false
   })
   document.querySelector("#addDeckButton").addEventListener("click", game.addDeck.bind(game))
