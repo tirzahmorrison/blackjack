@@ -254,6 +254,7 @@ class PlayerRenderer {
     this.template.querySelector(".playerMoney").textContent = this.watchedPlayer.money
     this.template.querySelector(".player-score span").textContent = this.watchedPlayer.score
     this.template.querySelector(".playerBet").value = this.watchedPlayer.bet
+    this.template.querySelector(".hand").innerHTML = ""
     for(let i=0; i < this.watchedPlayer.hand.length; i++) {
       this.renderCard(this.watchedPlayer.hand[i])
     }
@@ -301,7 +302,6 @@ class PlayerRenderer {
       value = cardToBeRendered.value
     }
     const template = document.querySelector(".templates #" + value + " > div").cloneNode(true)
-    this.template.querySelector(".hand").innerHTML = ""
     this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
