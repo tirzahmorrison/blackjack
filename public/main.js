@@ -297,6 +297,8 @@ class PlayerRenderer {
       case "10":
       value = "ten"
       break
+      default:
+      value = cardToBeRendered.value
     }
     const template = document.querySelector(".templates #" + value + " > div").cloneNode(true)
     this.template.querySelector(".hand").innerHTML = ""
