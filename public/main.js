@@ -193,6 +193,7 @@ class Player {
 class House extends Player {
   constructor() {
     console.log("house")
+    this.isHouse = true
     super("House", 0)
   }
 
@@ -249,13 +250,13 @@ class PlayerRenderer {
     this.template.classList.add(this.watchedPlayer.name.replace(/ /g, ""))
     playersArea.appendChild(this.template)
     this.template.querySelector(".playerBet").addEventListener("blur", () => { this.makeBet() })
-    this.template.querySelector(".acesIsEleven").addEventListener("change", (e) => { 
-      if(!e.target.value) {
+    this.template.querySelector(".acesIsEleven").addEventListener("change", (e) => {
+      if (!e.target.value) {
         this.watchedPlayer.chooseValueForAce(1)
       } else {
         this.watchedPlayer.chooseValueForAce(11)
       }
-        this.render
+      this.render
     })
     this.render()
   }
@@ -265,62 +266,70 @@ class PlayerRenderer {
     this.template.querySelector(".player-score span").textContent = this.watchedPlayer.score
     this.template.querySelector(".playerBet").value = this.watchedPlayer.bet
     this.template.querySelector(".hand").innerHTML = ""
-    for(let i=0; i < this.watchedPlayer.hand.length; i++) {
-      this.renderCard(this.watchedPlayer.hand[i])
+    for (let i = 0; i < this.watchedPlayer.hand.length; i++) {
+      if (this.watchedPlayer.isHouse && !this.isPlaying) {
+        this.rederCardBack()
+      } else {
+        this.renderCard(this.watchedPlayer.hand[i])
+      }
     }
   }
   renderCard(cardToBeRendered) {
     let suit, value, color
-    if(cardToBeRendered.suit === "clubs") {
+    if (cardToBeRendered.suit === "clubs") {
       suit = "♣"
       color = "black"
-    } else if(cardToBeRendered.suit === "diamonds") {
+    } else if (cardToBeRendered.suit === "diamonds") {
       suit = "♦"
       color = "red"
-    } else if(cardToBeRendered.suit === "hearts") {
+    } else if (cardToBeRendered.suit === "hearts") {
       suit = "♥"
       color = "red"
     } else {
       suit = "♠"
       color = "black"
     }
-    switch(cardToBeRendered.value) {
+    switch (cardToBeRendered.value) {
       case "2":
-      value = "two"
-      break
+        value = "two"
+        break
       case "3":
-      value = "three"
-      break
+        value = "three"
+        break
       case "4":
-      value = "four"
-      break
+        value = "four"
+        break
       case "5":
-      value = "five"
-      break
+        value = "five"
+        break
       case "6":
-      value = "six"
-      break
+        value = "six"
+        break
       case "7":
-      value = "seven"
-      break
+        value = "seven"
+        break
       case "8":
-      value = "eight"
-      break
+        value = "eight"
+        break
       case "9":
-      value = "nine"
-      break
+        value = "nine"
+        break
       case "10":
-      value = "ten"
-      break
+        value = "ten"
+        break
       default:
-      value = cardToBeRendered.value
+        value = cardToBeRendered.value
     }
     const template = document.querySelector(".templates #" + value + " > div").cloneNode(true)
     const spans = template.querySelectorAll("span")
-    for(let i = 0; i < spans.length; i++) {
+    for (let i = 0; i < spans.length; i++) {
       spans[i].textContent = suit
     }
     template.querySelector(".front").classList.add(color)
+    this.template.querySelector(".hand").appendChild(template)
+  }
+  renderCardBack() {
+    const template = document.querySelector(".templates #cardBack > div").cloneNode(true)
     this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
@@ -348,7 +357,11 @@ const gameStart = () => {
   document.querySelector("#stayButton").addEventListener("click", game.stay.bind(game))
   document.querySelector("#dealButton").addEventListener("click", game.dealCards.bind(game))
   document.querySelector("#splitButton").addEventListener("click", game.split.bind(game))
-  document.querySelector("#playHouseButton").addEventListener("click", game.playHouse.bind(game))
+  document.querySelector("#playHouseButton").addEventListener("click", () => {
+    playerTracker[game.house.name].isPlaying = true
+    game.playHouse()
+    playerTracker[game.house.name].isPlaying = false
+  })
   document.querySelector("#addDeckButton").addEventListener("click", game.addDeck.bind(game))
 }
 document.addEventListener('DOMContentLoaded', gameStart)
