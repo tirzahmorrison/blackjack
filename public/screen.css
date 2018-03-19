@@ -13,6 +13,29 @@ body {
   display: none;
 }
 
+#players-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+#players-area .hand {
+  display: flex;
+}
+
+#house-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+.blackjack {
+  display: flex;
+  justify-content: center;
+}
+
+#buttons-main {
+  display: flex;
+  justify-content: space-around;
+}
 /*****************************************************************************
 // Do not remove this notice.
 //

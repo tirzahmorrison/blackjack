@@ -7,9 +7,11 @@ class Blackjack {
     this.players = []
     this.house = new House
     this.currentPlayerIndex = 0
+    this.numDecks = 1
   }
-  changeNumberOfDecks(numDecks) {
-    this.deck = new Deck(numDecks)
+  addDeck() {
+    this.numDecks++
+    this.deck = new Deck(this.numDecks)
     this.dealCards()
   }
   addPlayer(name, money) {
@@ -339,5 +341,6 @@ const gameStart = () => {
   document.querySelector("#dealButton").addEventListener("click", game.dealCards.bind(game))
   document.querySelector("#splitButton").addEventListener("click", game.split.bind(game))
   document.querySelector("#playHouseButton").addEventListener("click", game.playHouse.bind(game))
+  document.querySelector("#addDeckButton").addEventListener("click", game.addDeck.bind(game))
 }
 document.addEventListener('DOMContentLoaded', gameStart)
