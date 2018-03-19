@@ -254,6 +254,23 @@ class PlayerRenderer {
     this.template.querySelector(".playerMoney").textContent = this.watchedPlayer.money
     this.template.querySelector(".player-score span").textContent = this.watchedPlayer.score
     this.template.querySelector(".playerBet").value = this.watchedPlayer.bet
+    for(let i=0; i < this.watchedPlayer.hand.length; i++) {
+      this.renderCard(this.watchedPlayer.hand[i])
+    }
+  }
+  renderCard(cardToBeRendered) {
+    let suit 
+    if(cardToBeRendered.suit === "clubs") {
+      suit = "♣"
+    } else if(cardToBeRendered.suit === "diamonds") {
+      suit = "♦"
+    } else if(cardToBeRendered.suit === "hearts") {
+      suit = "♥"
+    } else {
+      suit = "♠"
+    }
+    const template = document.querySelector(".templates " + cardToBeRendered.value + " > div").cloneNode(true)
+    this.template.querySelector(".hand").appendChild(template)
   }
   makeBet() {
     const newBet = this.template.querySelector(".playerBet").value
