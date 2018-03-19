@@ -223,7 +223,7 @@ class Deck {
 
   shuffle() {
     console.log("shuffle")
-    this.cards.concat(this.used)
+    this.cards = this.cards.concat(this.used)
     this.used = []
     for (let i = 0; i < 1000; i++) {
       const location1 = Math.floor(Math.random() * this.cards.length)
