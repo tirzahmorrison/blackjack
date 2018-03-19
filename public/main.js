@@ -193,8 +193,8 @@ class Player {
 class House extends Player {
   constructor() {
     console.log("house")
-    this.isHouse = true
     super("House", 0)
+    this.isHouse = true
   }
 
 }
