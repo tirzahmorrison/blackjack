@@ -249,7 +249,7 @@ class PlayerRenderer {
     this.template.classList.add(this.watchedPlayer.name.replace(/ /g, ""))
     playersArea.appendChild(this.template)
     this.template.querySelector(".playerBet").addEventListener("blur", () => { this.makeBet() })
-    this.template.querySelector("acesIsEleven").addEventListener("change", (e) => { 
+    this.template.querySelector(".acesIsEleven").addEventListener("change", (e) => { 
       if(!e.target.value) {
         this.watchedPlayer.chooseValueForAce(1)
       } else {
