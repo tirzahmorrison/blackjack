@@ -386,7 +386,7 @@ const gameStart = () => {
       const player = game.players[i]
       if (player.hasBlackjack() && game.house.hasBlackjack()) {
         playerTracker[player.name].renderResult("push")
-      } else if (!player.isBusted() && house.isBusted()) {
+      } else if (!player.isBusted() && game.house.isBusted()) {
         playerTracker[player.name].renderResult("win")
       } else if (!player.isBusted() && player.score > game.house.score) {
         playerTracker[player.name].renderResult("win")
