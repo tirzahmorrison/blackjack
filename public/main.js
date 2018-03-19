@@ -338,5 +338,6 @@ const gameStart = () => {
   document.querySelector("#stayButton").addEventListener("click", game.stay.bind(game))
   document.querySelector("#dealButton").addEventListener("click", game.dealCards.bind(game))
   document.querySelector("#splitButton").addEventListener("click", game.split.bind(game))
+  document.querySelector("#playHouseButton").addEventListener("click", game.playHouse.bind(game))
 }
 document.addEventListener('DOMContentLoaded', gameStart)
